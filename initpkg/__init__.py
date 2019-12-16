@@ -1,3 +1,1 @@
-def hello():
-    print("hi")
-    return "world"
+__version__ = "0.0.1"
