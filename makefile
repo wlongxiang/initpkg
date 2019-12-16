@@ -9,3 +9,7 @@ install:
 test:
 	if exist mystuff rmdir /S /Q mystuff
 	initpkg mystuff
+publish:
+	git tag v0.0.1
+	git push origin v0.0.1
+	twine upload dist/*

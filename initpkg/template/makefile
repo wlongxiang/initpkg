@@ -7,5 +7,9 @@ install:
 	pip install --find-links=dist  --no-cache-dir <your_pkg>==<your_version>
 
 test:
-	if exist mystuff rmdir /S /Q mystuff
-	initpkg mystuff
+	pytest tests
+
+publish:
+	git tag v0.0.1
+	git push origin v0.0.1
+	twine upload dist/*
