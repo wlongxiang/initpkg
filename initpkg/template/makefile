@@ -1,15 +1,19 @@
+.PHONY: docs
 setup:
-	if exist build rmdir /S /Q build
-	if exist dist rmdir /S /Q dist
+	rm -rf build
+	rm -rf dist
 	python setup.py bdist_wheel
 install:
-	pip uninstall <your_pkg> -y
-	pip install --find-links=dist  --no-cache-dir <your_pkg>==<your_version>
-
+	pip uninstall initpkg -y
+	pip install --find-links=dist  --no-cache-dir initpkg
 test:
-	pytest tests
+	rm -rf $(name)
+	initpkg $(name)
 
 publish:
-	git tag v0.0.1
-	git push origin v0.0.1
+	git tag $(version)
+	git push origin $(version)
 	twine upload dist/*
+
+docs:
+	rm -rf docs/_build && sphinx-apidoc -o docs <template> && cd docs && make html
