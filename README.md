@@ -2,6 +2,9 @@
 
 *initpkg* is a python package that creates a python package structure for you.
 
+Check PyPI page: https://pypi.org/project/initpkg/
+
+
 # Installation
 
 ```
