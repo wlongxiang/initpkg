@@ -11,15 +11,8 @@ def create_template(package_name):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser = argparse.ArgumentParser(description='create python package skeleton')
     parser.add_argument('name', help='name of the package')
     args = parser.parse_args()
     if "name" in args:
         create_template(args.name)
-
-#
-# if __name__ == '__main__':
-#     parser = argparse.ArgumentParser(description='Process some integers.')
-#     parser.add_argument('name', help='name of the package')
-#     args = parser.parse_args()
-#     main(args)
