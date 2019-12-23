@@ -11,6 +11,7 @@ test:
 	initpkg $(name)
 
 publish:
+	make setup
 	git tag $(version)
 	git push origin $(version)
 	twine upload dist/*
