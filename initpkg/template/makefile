@@ -4,17 +4,9 @@ setup:
 	rm -rf dist
 	python setup.py bdist_wheel
 install:
-	pip uninstall initpkg -y
-	pip install --find-links=dist  --no-cache-dir initpkg
+	pip uninstall  $(name) -y
+	pip install --find-links=dist  --no-cache-dir $(name)
 test:
-	rm -rf $(name)
-	initpkg $(name)
-
-publish:
-	make setup
-	git tag $(version)
-	git push origin $(version)
-	twine upload dist/*
-
+	pytest tests -vvv
 docs:
-	rm -rf docs/_build && sphinx-apidoc -o docs <template> && cd docs && make html
+	rm -rf docs/_build && sphinx-apidoc -o docs $(name) && cd docs && make html
