@@ -7,8 +7,15 @@ Check PyPI page: https://pypi.org/project/initpkg/
 
 # Installation
 
+You can install from Pypi:
+
 ```
 pip install initpkg
+```
+
+Or install from the latest master branch:
+```
+pip install git+https://github.com/wlongxiang/initpkg.git@master
 ```
 
 # Getting started
